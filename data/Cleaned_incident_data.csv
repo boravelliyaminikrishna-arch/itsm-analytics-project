@@ -1,0 +1,5 @@
+Incident_ID,Created_Date,Resolved_Date,Priority,Assignment_Group,Status,MTTR_hrs
+INC001,2024-01-01 10:00:00,2024-01-01 14:00:00,High,Network,Closed,4.0
+INC002,2024-01-02 09:00:00,2024-01-03 12:00:00,Medium,App,Closed,27.0
+INC003,2024-01-03 11:30:00,2024-01-03 15:00:00,Low,Support,Closed,3.5
+INC004,2024-01-04 08:00:00,2024-01-05 10:00:00,High,Database,Closed,26.0
