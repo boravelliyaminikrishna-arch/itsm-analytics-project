@@ -17,3 +17,38 @@ print(df[['Incident_ID', 'MTTR_hrs']])
 
 #saving Cleaned dataset
 df.to_csv('data/Cleaned_incident_data.csv', index=False)
+
+
+#add SLA compliance column
+# SLA targets
+def sla_target(priority):
+    if priority == 'High':
+        return 8
+    elif priority == 'Medium':
+        return 24
+    else:
+        return 48
+
+# apply SLA target
+df['SLA_Target_hrs'] = df['Priority'].apply(sla_target)
+
+# breach check
+df['SLA_Breach'] = df['MTTR_hrs'] > df['SLA_Target_hrs']
+
+print("\nMean Time to Resolve (MTTR) in hours:")
+print("Average MTTR:", df['MTTR_hrs'].mean())
+
+print("\nIncident MTTR Details:")
+print(df[['Incident_ID', 'Priority', 'MTTR_hrs']])
+
+print("\nSLA Compliance Details:")
+print(df[['Incident_ID', 'Priority', 'MTTR_hrs',
+          'SLA_Target_hrs', 'SLA_Breach']])
+
+# -----------------------------
+# SAVE CLEANED DATASET
+# -----------------------------
+
+df.to_csv('data/Cleaned_incident_data.csv', index=False)
+
+print("\nCleaned dataset saved successfully!")
