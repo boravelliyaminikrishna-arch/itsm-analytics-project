@@ -19,6 +19,16 @@ print(df[['Incident_ID', 'MTTR_hrs']])
 
 #saving Cleaned dataset
 df.to_csv('data/Cleaned_incident_data.csv', index=False)
+def priority_weight(priority):
+    if priority == 'High':
+        return 3
+    elif priority == 'Medium':
+        return 2
+    else:
+        return 1
+
+df['Priority_Score'] = df['Priority'].apply(priority_weight)
+df['Weighted_MTTR'] = df['MTTR_hrs'] * df['Priority_Score']
 
 #add SLA compliance column
 # SLA targets
@@ -44,7 +54,7 @@ print(df[['Incident_ID', 'Priority', 'MTTR_hrs']])
 
 print("\nSLA Compliance Details:")
 print(df[['Incident_ID', 'Priority', 'MTTR_hrs',
-          'SLA_Target_hrs', 'SLA_Breach']])
+          'SLA_Target_hrs', 'SLA_Breach', 'Priority_Score', 'Weighted_MTTR']])
 
 # -----------------------------
 # SAVE CLEANED DATASET
