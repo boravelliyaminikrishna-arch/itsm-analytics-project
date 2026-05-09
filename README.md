@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ITSM Incident Analytics Project
 
 ## Overview
@@ -17,6 +16,9 @@ This project analyzes IT Service Management incident data using Python and Power
 ## Key Metrics
 - Average MTTR
 - Incident trends
+<<<<<<< HEAD
+- Priority distribution
+=======
 - Priority distribution
 =======
 # ITSM Incident Analytics Project
@@ -50,3 +52,4 @@ git commit -m 'write the commit message' ---- Write a message to commit teh file
 git push ---- this will push to origin or the main stream that you set as the origin.
 
 git status --- see if all are pushed. verify in UI.
+>>>>>>> 5dbbd2d7d0ef224f49bdbc8c7b1b06e16396fcff
